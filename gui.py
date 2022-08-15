@@ -13,6 +13,7 @@ import pysoarlib as psl
 
 from agent_connector import AgentConnector, StateViewerConnector
 from consts import *
+from vog_parser import VOG
 
 OBSERVATION_SHAPE = (480, 640, 4)
 
@@ -51,6 +52,7 @@ class MineSoarGUI(tk.Tk):
         self.action_select_text_var = tk.StringVar(value=0)
 
         self.soar_user_input_var = tk.StringVar()
+        self.vog = VOG()
 
         self.make_mission_control_widgets()
         self.make_soar_control_widgets()
@@ -203,8 +205,9 @@ class MineSoarGUI(tk.Tk):
         self.soar_state_viewer_text.insert(tk.END, state_text)
         self.soar_state_viewer_text.insert(tk.END, "\n")
 
+        self.vog.parse_vog_text(vog_text)
         self.soar_vog_viewer_text.delete(1.0, tk.END)
-        self.soar_vog_viewer_text.insert(tk.END, vog_text)
+        self.soar_vog_viewer_text.insert(tk.END, str(self.vog))
         self.soar_vog_viewer_text.insert(tk.END, "\n")
 
     def perform_action(self, action_str):

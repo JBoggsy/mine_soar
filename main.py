@@ -6,7 +6,7 @@ import pysoarlib as psl
 from agent_connector import AgentConnector, StateViewerConnector
 from gui import MineSoarGUI
 
-MALMO_PORT = 9001
+MALMO_PORT = 9000
 USER_NAME = "boggsj"
 MALMO_ARGS = [f"/home/{USER_NAME}/Coding/malmo/Minecraft/launchClient.sh", "-port", str(MALMO_PORT), "-env"]
 
