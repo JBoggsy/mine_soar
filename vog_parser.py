@@ -14,8 +14,8 @@ class Node(object):
         
 
 class VOG(object):
-    NODE_PATTERN = re.compile("\((\w\d+)(([ \n]+\^([!-~]+)[ \n]+([!-~]+))*)\)")
-    ATTRIBUTE_PATTERN = re.compile("\^([\w\d\-_]+)\s+([!-~]+)")
+    NODE_PATTERN = re.compile("\((\w\d+)(([ \n]+\^([!-~]+)[ \n]+([!-~ ]+))*)\)")
+    ATTRIBUTE_PATTERN = re.compile("\^([\w\d\-_]+)\s+([\w\d\-_*.]+|\|.*\|)")
 
     def __init__(self):
         self.nodes = {-1: Node("V6")}
@@ -62,22 +62,15 @@ class VOG(object):
 
 
 if __name__ == "__main__":
-    test_text = """(V6 ^node N10 ^node N9 ^node N8 ^node N7 ^node N6 ^node N5 ^node N4 ^node N3
-       ^node N2 ^node N1)
-  (N10 ^filepath |node-8-image.png| ^node-id 9 ^op-name save-to-file ^target 8)
-  (N9 ^a 6 ^b 3 ^has-save-node true ^node-id 8 ^op-name add-mats ^target -1)
-  (N8 ^filepath |node-6-image.png| ^node-id 7 ^op-name save-to-file ^target 6)
-  (N7 ^has-save-node true ^node-id 6 ^op-name create-x-coord-mat ^size-x 127
-         ^size-y 127 ^target -1)
-  (N6 ^filepath |node-3-image.png| ^node-id 5 ^op-name save-to-file ^target 3)
-  (N5 ^filepath |node-1-image.png| ^node-id 4 ^op-name save-to-file ^target 1)
-  (N4 ^has-save-node true ^node-id 3 ^op-name create-y-coord-mat ^size-x 127
-         ^size-y 127 ^target -1)
-  (N3 ^filepath |node-0-image.png| ^node-id 2 ^op-name save-to-file ^target 0)
-  (N2 ^fill-val 255.000000 ^has-save-node true ^node-id 1
-         ^op-name create-float-filled-mat ^size-x 127 ^size-y 127 ^target -1)
-  (N1 ^has-save-node true ^node-id 0 ^op-name get-from-vsm ^target -1
-         ^vsm -906508744)"""
+    test_text = """(V6 ^node N4 ^node N3 ^node N2 ^node N1)
+  (N4 ^fill-val 70.000000 ^node-id 3 ^node-name |Fv matrix|
+         ^op-name create-float-filled-mat ^size-x 640 ^size-y 480 ^target -1)
+  (N3 ^node-id 2 ^node-name |y matrix| ^op-name create-y-coord-mat ^size-x 640
+         ^size-y 480 ^target -1)
+  (N2 ^fill-val 35.000000 ^node-id 1 ^node-name |Fv/2 matrix|
+         ^op-name create-float-filled-mat ^size-x 640 ^size-y 480 ^target -1)
+  (N1 ^node-id 0 ^node-name |x matrix| ^op-name create-x-coord-mat ^size-x 640
+         ^size-y 480 ^target -1)"""
     
     vog = VOG()
     vog.parse_vog_text(test_text)

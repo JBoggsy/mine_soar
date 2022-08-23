@@ -13,7 +13,7 @@ MALMO_ARGS = [f"/home/{USER_NAME}/Coding/malmo/Minecraft/launchClient.sh", "-por
 if __name__ == "__main__":
 
     agent = psl.SoarClient(agent_name="Steve",
-                           agent_source="/home/boggsj/Coding/research/mine_soar/atari_agents/agent_1/agent_1.soar",
+                           agent_source="/home/boggsj/Coding/research/mine_soar/atari_agents/agent_gamma.soar",
                            write_to_stdout=True,
                            watch_level=1)
 

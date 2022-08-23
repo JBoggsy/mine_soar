@@ -218,7 +218,7 @@ class MineSoarGUI(tk.Tk):
         self.update_observation(obs)
 
     def update_observation(self, observation:np.ndarray, info=None):
-        self.current_observation = observation.reshape(OBSERVATION_SHAPE)
+        self.current_observation = np.flip(observation.reshape(OBSERVATION_SHAPE), axis=0)
         observation_bgr = cv2.cvtColor(self.current_observation, cv2.COLOR_RGBA2BGRA)
         cv2.imwrite("./observation_raw.png", observation_bgr)
         self.connector.send_vision(observation_bgr)

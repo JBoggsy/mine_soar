@@ -105,7 +105,7 @@ class StateViewerConnector(psl.AgentConnector):
         self.gui = None
     
     def on_input_phase(self, input_link):
-        state_text = self.agent.execute_command(PRINT_STATE_COMMAND, True)
-        vog_text = self.agent.execute_command(PRINT_VOG_COMMAND, True)
+        state_text = self.agent.execute_command(PRINT_STATE_COMMAND, False)
+        vog_text = self.agent.execute_command(PRINT_VOG_COMMAND, False)
         self.gui._soar_state_viewer_callback(state_text, vog_text)
         # print(state_text)
