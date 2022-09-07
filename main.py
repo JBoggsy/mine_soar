@@ -23,7 +23,7 @@ cli.add_argument(
 )
 cli.add_argument(
     "-a", "--agent", 
-    default="atari_agents/agent_gamma.soar",
+    default="soar_agents/agent_gamma.soar",
     type=Path,
     help="The path to the .soar file which should be sourced for the agent."
 )
