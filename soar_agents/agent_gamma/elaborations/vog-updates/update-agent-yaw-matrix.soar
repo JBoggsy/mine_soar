@@ -1,0 +1,12 @@
+sp {elaborate*vog-updates*update-agent-yaw-matrix
+    (state <s>  ^svs.vsm.vog.node <node>
+                ^io.input-link.yaw <yaw>
+                ^svs.command <cmd>)
+    (<node> ^node-id <node-id>
+            ^node-name |agent yaw matrix|
+            ^fill-val <> <yaw>)
+-->
+    (<cmd>  ^edit-vop-node <edit>)
+    (<edit> ^node-id <node-id>
+            ^fill-val <yaw>)
+}

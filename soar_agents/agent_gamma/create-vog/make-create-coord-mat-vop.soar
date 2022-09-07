@@ -1,0 +1,31 @@
+######################
+# CREATE-X-COORD-MAT #
+######################
+sp {apply*make-create-x-coord-mat-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-create-x-coord-mat-vop
+         ^size-x <size-x>
+         ^size-y <size-y>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type create-x-coord-mat
+              ^size-x <size-x>
+              ^size-y <size-y>)
+}
+
+######################
+# CREATE-Y-COORD-MAT #
+######################
+sp {apply*make-create-y-coord-mat-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-create-y-coord-mat-vop
+         ^size-x <size-x>
+         ^size-y <size-y>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type create-y-coord-mat
+              ^size-x <size-x>
+              ^size-y <size-y>)
+}

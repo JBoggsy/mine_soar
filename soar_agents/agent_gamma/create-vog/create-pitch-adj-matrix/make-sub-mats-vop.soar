@@ -1,0 +1,19 @@
+sp {create-pitch-adj-matrix*propose*make-sub-mats-vop
+   (state <s> ^name create-pitch-adj-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for raw pitch adj and Fv-div-2 matrices
+   (<vog> ^node <raw-pitch-adjust-mat-node>
+          ^node <Fv-div-2-mat-node>)
+   (<raw-pitch-adjust-mat-node> ^node-id <raw-pitch-adjust-mat-node-id>
+                                ^node-name |raw pitch adj matrix|)
+   (<Fv-div-2-mat-node> ^node-id <Fv-div-2-mat-node-id>
+                        ^node-name |Fv/2 matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-sub-mats-vop
+         ^a <raw-pitch-adjust-mat-node-id>
+         ^b <Fv-div-2-mat-node-id>)
+}

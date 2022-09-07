@@ -1,0 +1,15 @@
+sp {create-agent-yaw-matrix*propose*create-vop-node
+   (state <s> ^name create-agent-yaw-matrix
+              ^top-state.io.input-link.yaw <yaw>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+  -{(<s> ^top-state.svs.vsm.vog.node <self-node>)
+    (<self-node> ^node-name |agent yaw matrix|)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-create-float-filled-mat-vop
+         ^size-x 640
+         ^size-y 480
+         ^fill-val <yaw>)
+}

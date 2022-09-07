@@ -1,0 +1,8 @@
+sp {elaborate*vsm
+   (state <s>   ^superstate { <ss> <> <s> }
+                ^svs <svs>)
+   (<ss> ^svs.vsm <ss-vsm>)
+-->
+   (<svs> ^vsm <ss-vsm>)
+}
+

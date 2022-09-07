@@ -1,0 +1,12 @@
+sp {create-sin-yaw-matrix*propose*name-vop-node
+   (state <s> ^name create-sin-yaw-matrix
+              ^top-state.svs.vsm.vog.node <node>)
+   (<node> -^node-name)
+   (<node>  ^node-id <node-id>
+            ^op-name <> save-to-file)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name name-vop-node
+         ^node-id <node-id>
+         ^node-name |sin yaw matrix|)
+}

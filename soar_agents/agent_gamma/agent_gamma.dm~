@@ -1,0 +1,392 @@
+190
+SOAR_ID 0
+SOAR_ID 1
+SOAR_ID 2
+SOAR_ID 3
+SOAR_ID 4
+ENUMERATION 5 1 state
+ENUMERATION 6 1 nil
+ENUMERATION 7 1 agent_gamma
+ENUMERATION 8 1 initialize-agent_gamma
+SOAR_ID 9
+ENUMERATION 10 1 create-vog
+SOAR_ID 11
+ENUMERATION 12 1 state
+ENUMERATION 13 1 create-vog
+ENUMERATION 14 1 name-vop-node
+SOAR_ID 15
+ENUMERATION 16 4 make-add-mats-vop make-div-mats-vop make-mul-mats-vop make-sub-mats-vop
+SOAR_ID 17
+ENUMERATION 18 1 make-create-float-filled-mat-vop
+SOAR_ID 19
+ENUMERATION 20 2 make-create-x-coord-mat-vop make-create-y-coord-mat-vop
+SOAR_ID 21
+SOAR_ID 22
+SOAR_ID 23
+SOAR_ID 24
+ENUMERATION 25 4 add-mats div-mats mul-mats sub-mats
+SOAR_ID 26
+SOAR_ID 27
+SOAR_ID 28
+SOAR_ID 29
+INTEGER_RANGE 30 -2147483648 2147483647
+STRING 31
+STRING 32
+INTEGER_RANGE 33 -2147483648 2147483647
+INTEGER_RANGE 34 -2147483648 2147483647
+INTEGER_RANGE 35 -2147483648 2147483647
+FLOAT_RANGE 36 -Infinity Infinity
+INTEGER_RANGE 37 -2147483648 2147483647
+INTEGER_RANGE 38 -2147483648 2147483647
+INTEGER_RANGE 39 -2147483648 2147483647
+INTEGER_RANGE 40 -2147483648 2147483647
+SOAR_ID 41
+SOAR_ID 42
+ENUMERATION 43 2 create-x-coord-mat create-y-coord-mat
+ENUMERATION 44 1 create-float-filled-mat
+INTEGER_RANGE 45 -2147483648 2147483647
+INTEGER_RANGE 46 -2147483648 2147483647
+INTEGER_RANGE 47 -2147483648 2147483647
+INTEGER_RANGE 48 -2147483648 2147483647
+INTEGER_RANGE 49 -2147483648 2147483647
+INTEGER_RANGE 50 -2147483648 2147483647
+FLOAT_RANGE 51 -Infinity Infinity
+ENUMERATION 52 1 create-H-matrix
+SOAR_ID 53
+SOAR_ID 54
+ENUMERATION 55 1 state
+ENUMERATION 56 1 create-H-matrix
+ENUMERATION 57 1 name-vop-node
+SOAR_ID 58
+ENUMERATION 59 1 make-create-float-filled-mat-vop
+SOAR_ID 60
+INTEGER_RANGE 61 -2147483648 2147483647
+INTEGER_RANGE 62 -2147483648 2147483647
+FLOAT_RANGE 63 -Infinity Infinity
+ENUMERATION 64 1 |H matrix|
+INTEGER_RANGE 65 -2147483648 2147483647
+STRING 66
+ENUMERATION 67 4 add-mats div-mats mul-mats sub-mats
+INTEGER_RANGE 68 -2147483648 2147483647
+INTEGER_RANGE 69 -2147483648 2147483647
+SOAR_ID 70
+ENUMERATION 71 1 create-float-filled-mat
+INTEGER_RANGE 72 -2147483648 2147483647
+STRING 73
+INTEGER_RANGE 74 -2147483648 2147483647
+INTEGER_RANGE 75 -2147483648 2147483647
+FLOAT_RANGE 76 -Infinity Infinity
+SOAR_ID 77
+ENUMERATION 78 2 create-x-coord-mat create-y-coord-mat
+INTEGER_RANGE 79 -2147483648 2147483647
+STRING 80
+INTEGER_RANGE 81 -2147483648 2147483647
+INTEGER_RANGE 82 -2147483648 2147483647
+ENUMERATION 83 1 create-W-matrix
+SOAR_ID 84
+SOAR_ID 85
+ENUMERATION 86 1 state
+ENUMERATION 87 1 create-W-matrix
+ENUMERATION 88 1 make-create-float-filled-mat-vop
+SOAR_ID 89
+ENUMERATION 90 1 name-vop-node
+SOAR_ID 91
+ENUMERATION 92 1 |W matrix|
+INTEGER_RANGE 93 -2147483648 2147483647
+INTEGER_RANGE 94 -2147483648 2147483647
+FLOAT_RANGE 95 -Infinity Infinity
+INTEGER_RANGE 96 -2147483648 2147483647
+ENUMERATION 97 1 create-x-matrix
+SOAR_ID 98
+SOAR_ID 99
+ENUMERATION 100 1 state
+ENUMERATION 101 1 create-x-matrix
+ENUMERATION 102 1 make-create-x-coord-mat-vop
+SOAR_ID 103
+ENUMERATION 104 1 name-vop-node
+SOAR_ID 105
+INTEGER_RANGE 106 -2147483648 2147483647
+INTEGER_RANGE 107 -2147483648 2147483647
+INTEGER_RANGE 108 -2147483648 2147483647
+STRING 109
+ENUMERATION 110 1 create-y-matrix
+SOAR_ID 111
+ENUMERATION 112 1 create-y-matrix
+SOAR_ID 113
+SOAR_ID 114
+ENUMERATION 115 1 state
+ENUMERATION 116 1 create-y-matrix
+ENUMERATION 117 1 make-create-y-coord-mat-vop
+SOAR_ID 118
+ENUMERATION 119 1 name-vop-node
+SOAR_ID 120
+INTEGER_RANGE 121 -2147483648 2147483647
+INTEGER_RANGE 122 -2147483648 2147483647
+STRING 123
+INTEGER_RANGE 124 -2147483648 2147483647
+ENUMERATION 125 1 create-Fh-matrix
+SOAR_ID 126
+SOAR_ID 127
+ENUMERATION 128 1 state
+ENUMERATION 129 1 create-Fh-matrix
+ENUMERATION 130 1 make-create-float-filled-mat-vop
+SOAR_ID 131
+ENUMERATION 132 1 name-vop-node
+SOAR_ID 133
+INTEGER_RANGE 134 -2147483648 2147483647
+INTEGER_RANGE 135 -2147483648 2147483647
+FLOAT_RANGE 136 -Infinity Infinity
+INTEGER_RANGE 137 -2147483648 2147483647
+STRING 138
+ENUMERATION 139 1 create-Fv-matrix
+SOAR_ID 140
+SOAR_ID 141
+ENUMERATION 142 1 state
+ENUMERATION 143 1 create-Fv-matrix
+ENUMERATION 144 1 make-create-float-filled-mat-vop
+SOAR_ID 145
+ENUMERATION 146 1 name-vop-node
+SOAR_ID 147
+INTEGER_RANGE 148 -2147483648 2147483647
+INTEGER_RANGE 149 -2147483648 2147483647
+FLOAT_RANGE 150 -Infinity Infinity
+INTEGER_RANGE 151 -2147483648 2147483647
+STRING 152
+ENUMERATION 153 1 create-Fh-div-2-matrix
+SOAR_ID 154
+SOAR_ID 155
+ENUMERATION 156 1 state
+ENUMERATION 157 1 create-Fh-div-2-matrix
+ENUMERATION 158 1 make-create-float-filled-mat-vop
+SOAR_ID 159
+ENUMERATION 160 1 name-vop-node
+SOAR_ID 161
+ENUMERATION 162 1 create-Fv-div-2-matrix
+SOAR_ID 163
+SOAR_ID 164
+ENUMERATION 165 1 state
+ENUMERATION 166 1 create-Fv-div-2-matrix
+ENUMERATION 167 1 make-create-float-filled-mat-vop
+SOAR_ID 168
+ENUMERATION 169 1 name-vop-node
+SOAR_ID 170
+ENUMERATION 171 1 make-horiz-pct-matrix
+SOAR_ID 172
+SOAR_ID 173
+ENUMERATION 174 1 state
+ENUMERATION 175 1 make-horix-pct-matrix
+ENUMERATION 176 1 make-div-mats-vop
+SOAR_ID 177
+ENUMERATION 178 1 name-vop-node
+SOAR_ID 179
+INTEGER_RANGE 180 -2147483648 2147483647
+INTEGER_RANGE 181 -2147483648 2147483647
+FLOAT_RANGE 182 -Infinity Infinity
+INTEGER_RANGE 183 -2147483648 2147483647
+INTEGER_RANGE 184 -2147483648 2147483647
+FLOAT_RANGE 185 -Infinity Infinity
+INTEGER_RANGE 186 -2147483648 2147483647
+STRING 187
+INTEGER_RANGE 188 -2147483648 2147483647
+STRING 189
+200
+0 io 1
+0 name 7
+0 operator 4
+0 operator 9
+0 superstate 6
+0 svs 26
+0 top-state 0
+0 type 5
+0 vog-complete 31
+1 input-link 2
+1 output-link 3
+4 name 8
+9 name 10
+11 name 13
+11 operator 15
+11 operator 17
+11 operator 19
+11 operator 21
+11 operator 53
+11 operator 84
+11 operator 98
+11 operator 113
+11 operator 126
+11 operator 140
+11 operator 154
+11 operator 163
+11 operator 172
+11 superstate 0
+11 svs 22
+11 top-state 0
+11 type 12
+15 name 14
+15 node-id 33
+15 node-name 32
+17 a 35
+17 b 34
+17 name 16
+19 fill-val 36
+19 name 18
+19 size-x 38
+19 size-y 37
+21 name 20
+21 size-x 39
+21 size-y 40
+22 command 23
+23 add-vop-node 24
+23 add-vop-node 41
+23 add-vop-node 42
+24 a 45
+24 b 46
+24 op-type 25
+26 vsm 27
+27 vog 28
+28 node 29
+28 node 70
+28 node 77
+29 a 68
+29 b 69
+29 node-id 30
+29 node-name 66
+29 op-type 67
+41 fill-val 51
+41 op-type 44
+41 size-x 49
+41 size-y 50
+42 op-type 43
+42 size-x 47
+42 size-y 48
+53 name 52
+54 name 56
+54 operator 58
+54 operator 60
+54 superstate 11
+54 top-state 0
+54 type 55
+58 name 57
+58 node-id 65
+58 node-name 64
+60 fill-val 63
+60 name 59
+60 size-x 61
+60 size-y 62
+70 fill-val 76
+70 node-id 72
+70 node-name 73
+70 op-type 71
+70 size-x 74
+70 size-y 75
+77 node-id 79
+77 node-name 80
+77 op-type 78
+77 size-x 82
+77 size-y 81
+84 name 83
+85 name 87
+85 operator 89
+85 operator 91
+85 superstate 11
+85 top-state 0
+85 type 86
+89 fill-val 95
+89 name 88
+89 size-x 93
+89 size-y 94
+91 name 90
+91 node-id 96
+91 node-name 92
+98 name 97
+99 name 101
+99 operator 103
+99 operator 105
+99 operator 111
+99 superstate 11
+99 top-state 0
+99 type 100
+103 name 102
+103 size-x 106
+103 size-y 107
+105 name 104
+105 node-id 108
+105 node-name 109
+111 name 110
+113 name 112
+114 name 116
+114 operator 118
+114 operator 120
+114 superstate 11
+114 top-state 0
+114 type 115
+118 name 117
+118 size-x 121
+118 size-y 122
+120 name 119
+120 node-id 124
+120 node-name 123
+126 name 125
+127 name 129
+127 operator 131
+127 operator 133
+127 superstate 11
+127 top-state 0
+127 type 128
+131 fill-val 136
+131 name 130
+131 size-x 134
+131 size-y 135
+133 name 132
+133 node-id 137
+133 node-name 138
+140 name 139
+141 name 143
+141 operator 145
+141 operator 147
+141 superstate 11
+141 top-state 0
+141 type 142
+145 fill-val 150
+145 name 144
+145 size-x 148
+145 size-y 149
+147 name 146
+147 node-id 151
+147 node-name 152
+154 name 153
+155 name 157
+155 operator 159
+155 operator 161
+155 superstate 11
+155 top-state 0
+155 type 156
+159 fill-val 182
+159 name 158
+159 size-x 180
+159 size-y 181
+161 name 160
+161 node-id 186
+161 node-name 187
+163 name 162
+164 name 166
+164 operator 168
+164 operator 170
+164 superstate 11
+164 top-state 0
+164 type 165
+168 fill-val 185
+168 name 167
+168 size-x 183
+168 size-y 184
+170 name 169
+170 node-id 188
+170 node-name 189
+172 name 171
+173 name 175
+173 operator 177
+173 operator 179
+173 superstate 11
+173 top-state 0
+173 type 174
+177 name 176
+179 name 178

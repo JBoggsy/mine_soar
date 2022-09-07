@@ -1,0 +1,19 @@
+sp {create-horiz-pct-matrix*propose*make-div-mats-vop
+   (state <s> ^name create-horiz-pct-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for x-coord matrix and W matrix nodes
+   (<vog> ^node <W-mat-node>
+          ^node <x-coord-mat-node>)
+   (<W-mat-node> ^node-id <W-mat-node-id>
+                 ^node-name |W matrix|)
+   (<x-coord-mat-node> ^node-id <x-mat-node-id>
+                       ^node-name |x matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-div-mats-vop
+         ^a <x-mat-node-id>
+         ^b <W-mat-node-id>)
+}

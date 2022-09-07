@@ -1,0 +1,19 @@
+sp {create-raw-yaw-adj-matrix*propose*make-mul-mats-vop
+   (state <s> ^name create-raw-yaw-adj-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for horiz pct matrix and Fh matrix
+   (<vog> ^node <horiz-pct-mat-node>
+          ^node <Fh-mat-node>)
+   (<horiz-pct-mat-node> ^node-id <horiz-pct-mat-node-id>
+                         ^node-name |horiz pct matrix|)
+   (<Fh-mat-node> ^node-id <Fh-mat-node-id>
+                  ^node-name |Fh matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-mul-mats-vop
+         ^a <horiz-pct-mat-node-id>
+         ^b <Fh-mat-node-id>)
+}

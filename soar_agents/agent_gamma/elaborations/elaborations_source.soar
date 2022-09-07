@@ -1,0 +1,6 @@
+source _all.soar
+source top-state.soar
+pushd vog-updates
+source vog-updates_source.soar
+popd
+source vsm_elaboration.soar

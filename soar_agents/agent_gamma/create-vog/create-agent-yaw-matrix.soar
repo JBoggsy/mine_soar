@@ -1,0 +1,14 @@
+sp {create-vog*propose*create-agent-yaw-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>
+              ^top-state.io.input-link.yaw <yaw>)
+  -{(<vog>  ^node <agent-yaw-mat-node>
+            ^node <agent-yaw-mat-save-node>)
+    (<agent-yaw-mat-node>   ^node-name |agent yaw matrix|
+                              ^node-id <agent-yaw-mat-node-id>)
+    (<agent-yaw-mat-save-node> ^op-name save-to-file
+                               ^target <agent-yaw-mat-node-id>)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-agent-yaw-matrix)
+}

@@ -1,0 +1,11 @@
+sp {create-vog*propose*create-sin-pitch-matrix
+    (state <s>  ^name create-vog
+                ^top-state.svs.vsm.vog <vog>)
+    (<vog>  ^node <pitch>)
+    (<pitch>    ^node-name |pitch matrix|)
+   -{(<vog> ^node <self-node>)
+    (<self-node>    ^node-name |sin pitch matrix|)}
+-->
+    (<s> ^operator <op> + =)
+    (<op> ^name create-sin-pitch-matrix)
+}

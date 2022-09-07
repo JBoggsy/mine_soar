@@ -1,0 +1,16 @@
+sp {create-vog*propose*create-extract-D-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog>  ^node <D-matrix-node>
+            ^node <D-matrix-save-node>)
+    (<D-matrix-node> ^node-name |D matrix|
+                     ^node-id <D-matrix-node-id>)
+    (<D-matrix-save-node>  ^op-name save-to-file
+                           ^target <D-matrix-node-id>)}
+   (<vog> ^node <vision-node>)
+   (<vision-node> ^node-name |vision|
+                  ^node-id <vision-node-id>)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-extract-D-matrix)
+}

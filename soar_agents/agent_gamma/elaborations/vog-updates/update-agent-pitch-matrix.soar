@@ -1,0 +1,12 @@
+sp {elaborate*vog-updates*update-agent-pitch-matrix
+    (state <s>  ^svs.vsm.vog.node <node>
+                ^io.input-link.pitch <pitch>
+                ^svs.command <cmd>)
+    (<node> ^node-id <node-id>
+            ^node-name |agent pitch matrix|
+            ^fill-val <> <pitch>)
+-->
+    (<cmd>  ^edit-vop-node <edit>)
+    (<edit> ^node-id <node-id>
+            ^fill-val <pitch>)
+}

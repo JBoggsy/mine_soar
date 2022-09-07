@@ -1,0 +1,142 @@
+source elaborations.soar
+source create-Fh-div-2-matrix.soar
+pushd create-Fh-div-2-matrix
+source create-Fh-div-2-matrix_source.soar
+popd
+source create-Fh-matrix.soar
+pushd create-Fh-matrix
+source create-Fh-matrix_source.soar
+popd
+source create-Fv-div-2-matrix.soar
+pushd create-Fv-div-2-matrix
+source create-Fv-div-2-matrix_source.soar
+popd
+source create-Fv-matrix.soar
+pushd create-Fv-matrix
+source create-Fv-matrix_source.soar
+popd
+source create-H-matrix.soar
+pushd create-H-matrix
+source create-H-matrix_source.soar
+popd
+source create-W-matrix.soar
+pushd create-W-matrix
+source create-W-matrix_source.soar
+popd
+source create-x-matrix.soar
+pushd create-x-matrix
+source create-x-matrix_source.soar
+popd
+source create-y-matrix.soar
+pushd create-y-matrix
+source create-y-matrix_source.soar
+popd
+source create-horiz-pct-matrix.soar
+pushd create-horiz-pct-matrix
+source create-horiz-pct-matrix_source.soar
+popd
+source create-vert-pct-matrix.soar
+pushd create-vert-pct-matrix
+source create-vert-pct-matrix_source.soar
+popd
+source create-raw-pitch-adj-matrix.soar
+pushd create-raw-pitch-adj-matrix
+source create-raw-pitch-adj-matrix_source.soar
+popd
+source create-raw-yaw-adj-matrix.soar
+pushd create-raw-yaw-adj-matrix
+source create-raw-yaw-adj-matrix_source.soar
+popd
+source create-pitch-adj-matrix.soar
+pushd create-pitch-adj-matrix
+source create-pitch-adj-matrix_source.soar
+popd
+source create-yaw-adj-matrix.soar
+pushd create-yaw-adj-matrix
+source create-yaw-adj-matrix_source.soar
+popd
+source create-agent-pitch-matrix.soar
+pushd create-agent-pitch-matrix
+source create-agent-pitch-matrix_source.soar
+popd
+source create-agent-yaw-matrix.soar
+pushd create-agent-yaw-matrix
+source create-agent-yaw-matrix_source.soar
+popd
+source create-pitch-matrix.soar
+pushd create-pitch-matrix
+source create-pitch-matrix_source.soar
+popd
+source create-yaw-matrix.soar
+pushd create-yaw-matrix
+source create-yaw-matrix_source.soar
+popd
+source create-cos-yaw-matrix.soar
+pushd create-cos-yaw-matrix
+source create-cos-yaw-matrix_source.soar
+popd
+source create-cos-pitch-matrix.soar
+pushd create-cos-pitch-matrix
+source create-cos-pitch-matrix_source.soar
+popd
+source create-sin-yaw-matrix.soar
+pushd create-sin-yaw-matrix
+source create-sin-yaw-matrix_source.soar
+popd
+source create-sin-pitch-matrix.soar
+pushd create-sin-pitch-matrix
+source create-sin-pitch-matrix_source.soar
+popd
+source create-neg-Vx-matrix.soar
+pushd create-neg-Vx-matrix
+source create-neg-Vx-matrix_source.soar
+popd
+source create-Vx-matrix.soar
+pushd create-Vx-matrix
+source create-Vx-matrix_source.soar
+popd
+source create-Vy-matrix.soar
+pushd create-Vy-matrix
+source create-Vy-matrix_source.soar
+popd
+source create-Vz-matrix.soar
+pushd create-Vz-matrix
+source create-Vz-matrix_source.soar
+popd
+source create-get-vision.soar
+pushd create-get-vision
+source create-get-vision_source.soar
+popd
+source create-extract-D-matrix.soar
+pushd create-extract-D-matrix
+source create-extract-D-matrix_source.soar
+popd
+source create-Dx-matrix.soar
+pushd create-Dx-matrix
+source create-Dx-matrix_source.soar
+popd
+source create-Dy-matrix.soar
+pushd create-Dy-matrix
+source create-Dy-matrix_source.soar
+popd
+source create-Dz-matrix.soar
+pushd create-Dz-matrix
+source create-Dz-matrix_source.soar
+popd
+source create-Dxy-matrix.soar
+pushd create-Dxy-matrix
+source create-Dxy-matrix_source.soar
+popd
+source create-Dxyz-matrix.soar
+pushd create-Dxyz-matrix
+source create-Dxyz-matrix_source.soar
+popd
+source make-create-coord-mat-vop.soar
+source make-create-float-filled-mat-vop.soar
+source make-mat-arith-vop.soar
+source name-vop-node.soar
+source make-save-node.soar
+source make-apply-unary-op-vop.soar
+source make-get-from-vsm-vop.soar
+source make-extract-channel-vop.soar
+source make-stack-matrices-vop.soar

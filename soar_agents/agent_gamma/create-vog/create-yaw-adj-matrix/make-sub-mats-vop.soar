@@ -1,0 +1,19 @@
+sp {create-yaw-adj-matrix*propose*make-sub-mats-vop
+   (state <s> ^name create-yaw-adj-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for the raw yaw adj and Fh-div-2 matrices
+   (<vog> ^node <raw-yaw-adj-mat-node>
+          ^node <Fh-div-2-mat-node>)
+   (<raw-yaw-adj-mat-node> ^node-id <raw-yaw-adj-mat-node-id>
+                         ^node-name |raw yaw adj matrix|)
+   (<Fh-div-2-mat-node> ^node-id <Fh-div-2-mat-node-id>
+                  ^node-name |Fh/2 matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-sub-mats-vop
+         ^a <raw-yaw-adj-mat-node-id>
+         ^b <Fh-div-2-mat-node-id>)
+}

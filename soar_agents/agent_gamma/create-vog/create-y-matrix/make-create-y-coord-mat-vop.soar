@@ -1,0 +1,11 @@
+sp {create-y-matrix*propose*create-vop-node
+   (state <s> ^name create-y-matrix)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-create-y-coord-mat-vop
+         ^size-x 640
+         ^size-y 480)
+}

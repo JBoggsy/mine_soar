@@ -1,0 +1,12 @@
+sp {create-get-vision*propose*make-get-from-vsm-vop
+   (state <s> ^name create-get-vision
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <unnamed-node>)
+    (<unnamed-node> -^node-name
+                     ^op-name <> save-to-file)}
+  -{(<vog> ^node <self-node>)
+    (<self-node> ^node-name |vision|)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-get-from-vsm-vop)
+}

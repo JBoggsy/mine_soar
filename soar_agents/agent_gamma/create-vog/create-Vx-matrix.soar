@@ -1,0 +1,12 @@
+sp {create-vog*propose*create-Vx-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>
+              ^top-state.io.input-link.pitch <pitch>)
+  -{(<vog>  ^node <self-node>)
+    (<self-node>   ^node-name |Vx matrix|)}
+   (<vog> ^node <neg-Vx-matrix>)
+   (<neg-Vx-matrix> ^node-name |neg Vx matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-Vx-matrix)
+}

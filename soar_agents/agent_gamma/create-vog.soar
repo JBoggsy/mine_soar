@@ -1,0 +1,7 @@
+sp {agent_gamma*propose*create-vog
+   (state <s> ^name agent_gamma
+             -^vog-complete)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-vog)
+}

@@ -1,0 +1,16 @@
+sp {create-vog*propose*create-raw-pitch-adj-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <node>)
+    (<node> ^node-name |raw pitch adj matrix|)}
+   # Check for vert pct matrix and Fv matrix
+   (<vog> ^node <vert-pct-mat-node>
+          ^node <Fv-mat-node>)
+   (<vert-pct-mat-node> ^node-id <vert-pct-mat-node-id>
+                         ^node-name |vert pct matrix|)
+   (<Fv-mat-node> ^node-id <Fv-mat-node-id>
+                  ^node-name |Fv matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-raw-pitch-adj-matrix)
+}

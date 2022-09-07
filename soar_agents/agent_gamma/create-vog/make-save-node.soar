@@ -1,0 +1,11 @@
+sp {apply*make-save-node
+   (state <s> ^operator <op>
+              ^svs.command <cmd-link>)
+   (<op> ^name make-save-node
+         ^target <tgt-id>)
+-->
+   (<cmd-link> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type save-to-file
+              ^target <tgt-id>
+              ^filepath (concat |node-| <tgt-id> |-image.png|))
+}

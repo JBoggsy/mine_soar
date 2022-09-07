@@ -1,0 +1,16 @@
+sp {create-agent-pitch-matrix*propose*create-vop-node
+   (state <s> ^name create-agent-pitch-matrix
+              ^top-state.io.input-link.pitch <pitch>
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+  -{(<vog> ^node <self-node>)
+    (<self-node> ^node-name |agent pitch matrix|)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-create-float-filled-mat-vop
+         ^size-x 640
+         ^size-y 480
+         ^fill-val <pitch>)
+}

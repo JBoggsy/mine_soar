@@ -1,0 +1,19 @@
+sp {create-vog*propose*create-Dxyz-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog>  ^node <self-node>
+            ^node <save-node>)
+    (<self-node> ^node-name |Dxyz matrix|
+                 ^node-id <self-node-id>)}
+   #  (<save-node> ^op-name save-to-file
+   #               ^target <self-node-id>)}
+   (<vog>   ^node <Dxy-node>
+            ^node <Dz-node>)
+   (<Dxy-node>   ^node-name |Dxy matrix|
+                ^node-id <Dxy-node-id>)
+   (<Dz-node>   ^node-name |Dz matrix|
+                ^node-id <Dz-node-id>)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-Dxyz-matrix)
+}

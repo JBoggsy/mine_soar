@@ -1,0 +1,63 @@
+############
+# ADD-MATS #
+############
+sp {apply*make-add-mats-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-add-mats-vop
+         ^a <a-node-id>
+         ^b <b-node-id>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type add-mats
+              ^a <a-node-id>
+              ^b <b-node-id>)
+}
+
+############
+# SUB-MATS #
+############
+sp {apply*make-sub-mats-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-sub-mats-vop
+         ^a <a-node-id>
+         ^b <b-node-id>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type sub-mats
+              ^a <a-node-id>
+              ^b <b-node-id>)
+}
+
+############
+# MUL-MATS #
+############
+sp {apply*make-mul-mats-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-mul-mats-vop
+         ^a <a-node-id>
+         ^b <b-node-id>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type mul-mats
+              ^a <a-node-id>
+              ^b <b-node-id>)
+}
+
+############
+# DIV-MATS #
+############
+sp {apply*make-div-mats-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-div-mats-vop
+         ^a <a-node-id>
+         ^b <b-node-id>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type div-mats
+              ^a <a-node-id>
+              ^b <b-node-id>)
+}

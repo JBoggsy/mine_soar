@@ -1,0 +1,16 @@
+sp {create-vog*propose*create-Dxy-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog>  ^node <Dxy-node>)
+    (<Dxy-node> ^node-name |Dxy matrix|
+                ^node-id <Dxy-node-id>)}
+   (<vog>   ^node <Dx-node>
+            ^node <Dy-node>)
+   (<Dx-node>   ^node-name |Dx matrix|
+                ^node-id <Dx-node-id>)
+   (<Dy-node>   ^node-name |Dy matrix|
+                ^node-id <Dy-node-id>)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-Dxy-matrix)
+}

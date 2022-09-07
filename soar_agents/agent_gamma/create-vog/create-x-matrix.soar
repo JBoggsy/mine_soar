@@ -1,0 +1,9 @@
+sp {create-vog*propose*create-x-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <x-mat-node>)
+    (<x-mat-node> ^node-name |x matrix|)}
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-x-matrix)
+}

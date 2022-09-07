@@ -1,0 +1,20 @@
+sp {create-vog*propose*create-yaw-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog>  ^node <yaw-mat-node>
+            ^node <yaw-save-node>)
+    (<yaw-mat-node>  ^node-name |yaw matrix|
+                     ^node-id <yaw-mat-node-id>)
+    (<yaw-save-node>  ^op-name save-to-file
+                      ^target <yaw-mat-node-id>)}
+   # Check for the yaw adj and agent-yaw matrices
+   (<vog> ^node <yaw-adj-mat-node>
+          ^node <agent-yaw-mat-node>)
+   (<yaw-adj-mat-node>  ^node-id <yaw-adj-mat-node-id>
+                        ^node-name |yaw adj matrix|)
+   (<agent-yaw-mat-node>   ^node-id <agent-yaw-mat-node-id>
+                           ^node-name |agent yaw matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-yaw-matrix)
+}

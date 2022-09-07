@@ -1,0 +1,20 @@
+sp {create-vog*propose*create-pitch-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <pitch-mat-node>
+           ^node <pitch-mat-save-node>)
+    (<pitch-mat-node> ^node-name |pitch matrix|
+                      ^node-id <pitch-mat-node-id>)
+    (<pitch-mat-save-node> ^op-name save-to-file
+                           ^target <pitch-mat-node-id>)}
+   # Check for pitch adj and agent pitch matrices
+   (<vog> ^node <pitch-adjust-mat-node>
+          ^node <agent-pitch-mat-node>)
+   (<pitch-adjust-mat-node>   ^node-id <pitch-adjust-mat-node-id>
+                              ^node-name |pitch adj matrix|)
+   (<agent-pitch-mat-node> ^node-id <agent-pitch-mat-node-id>
+                           ^node-name |agent pitch matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-pitch-matrix)
+}

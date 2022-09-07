@@ -1,0 +1,25 @@
+sp {create-yaw-matrix*propose*name-vop-node
+   (state <s> ^name create-yaw-matrix
+              ^top-state.svs.vsm.vog.node <node>)
+   (<node> -^node-name)
+   (<node>  ^node-id <node-id>
+            ^op-name <> save-to-file)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name name-vop-node
+         ^node-id <node-id>
+         ^node-name |yaw matrix|)
+}
+
+# sp {create-yaw-matrix*propose*name-save-node
+#    (state <s> ^name create-yaw-matrix
+#               ^top-state.svs.vsm.vog.node <node>)
+#    (<node> -^node-name)
+#    (<node>  ^node-id <node-id>
+#             ^op-name save-to-file)
+# -->
+#    (<s> ^operator <op> + =)
+#    (<op> ^name name-vop-node
+#          ^node-id <node-id>
+#          ^node-name |yaw matrix save|)
+# }

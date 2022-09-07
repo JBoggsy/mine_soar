@@ -1,0 +1,12 @@
+sp {apply*make-apply-unary-op-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-apply-unary-op-vop
+         ^target <tgt>
+         ^unary-op <unary-op>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type apply-unary-op
+              ^target <tgt>
+              ^unary-op <unary-op>)
+}

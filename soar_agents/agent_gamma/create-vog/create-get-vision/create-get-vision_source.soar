@@ -1,0 +1,4 @@
+source elaborations.soar
+source make-get-from-vsm-vop.soar
+source name-vop-node.soar
+source add-save-node.soar

@@ -1,0 +1,20 @@
+sp {create-vog*propose*create-Dx-matrix
+   (state <s> ^name create-vog
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog>  ^node <self-node>
+            ^node <save-node>)
+    (<self-node> ^node-name |Dx matrix|
+                 ^node-id <self-node-id>)
+    (<save-node> ^op-name save-to-file
+                 ^target <self-node-id>)}
+   # Check for D and Vx matrices
+   (<vog> ^node <D-matrix>
+          ^node <Vx-matrix>)
+   (<D-matrix> ^node-id <D-matrix-id>
+               ^node-name |D matrix|)
+   (<Vx-matrix> ^node-id <Vx-matrix-id>
+                ^node-name |Vx matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name create-Dx-matrix)
+}

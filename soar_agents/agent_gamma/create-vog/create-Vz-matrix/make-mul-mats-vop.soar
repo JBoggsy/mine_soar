@@ -1,0 +1,19 @@
+sp {create-Vz-matriz*propose*make-mul-mats-vop
+   (state <s> ^name create-Vz-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for cos(yaw) and cos(pitch) matrices
+   (<vog> ^node <cos-pitch>
+          ^node <cos-yaw>)
+   (<cos-pitch> ^node-id <cos-pitch-id>
+                ^node-name |cos pitch matrix|)
+   (<cos-yaw> ^node-id <cos-yaw-id>
+              ^node-name |cos yaw matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-mul-mats-vop
+         ^a <cos-pitch-id>
+         ^b <cos-yaw-id>)
+}

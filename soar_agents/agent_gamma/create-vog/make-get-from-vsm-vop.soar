@@ -1,0 +1,11 @@
+####################
+# GET-FROM-VSM VOP #
+####################
+sp {apply*make-get-from-vsm-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-get-from-vsm-vop)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type get-from-vsm)
+}

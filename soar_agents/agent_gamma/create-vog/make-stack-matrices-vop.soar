@@ -1,0 +1,15 @@
+############
+# MUL-MATS #
+############
+sp {apply*make-stack-matrices-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-stack-matrices-vop
+         ^a <a-node-id>
+         ^b <b-node-id>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type stack-matrices
+              ^a <a-node-id>
+              ^b <b-node-id>)
+}

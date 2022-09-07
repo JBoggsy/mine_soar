@@ -1,0 +1,14 @@
+sp {apply*make-create-float-filled-mat-vop
+   (state <s> ^operator <op>
+              ^svs.command <cmd>)
+   (<op> ^name make-create-float-filled-mat-vop
+         ^size-x <size-x>
+         ^size-y <size-y>
+         ^fill-val <fill-val>)
+-->
+   (<cmd> ^add-vop-node <add-vop>)
+   (<add-vop> ^op-type create-float-filled-mat
+              ^size-x <size-x>
+              ^size-y <size-y>
+              ^fill-val <fill-val>)
+}

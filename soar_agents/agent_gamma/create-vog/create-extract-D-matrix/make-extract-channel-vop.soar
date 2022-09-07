@@ -1,0 +1,20 @@
+sp {create-extract-D-matrix*propose*create-extract-channel-vop
+   (state <s> ^name create-extract-D-matrix
+              ^top-state.svs.vsm.vog <vog>)
+# Propose iff all non-save nodes are named
+  -{(<vog>  ^node <unnamed-node>)
+    (<unnamed-node> -^node-name
+                     ^op-name <> save-to-file)}
+# Avoid proposing if the D matrix node already exists
+  -{(<vog>  ^node <self-node>)
+    (<self-node> ^node-name |D matrix|)}
+# Ensure the vision node exists before proposing
+   (<vog> ^node <vision-node>)
+   (<vision-node> ^node-name |vision|
+                  ^node-id <vision-node-id>)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-extract-channel-vop
+         ^target <vision-node-id>
+         ^channel 3)
+}

@@ -1,0 +1,16 @@
+sp {create-cos-yaw-matrix*propose*make-apply-unary-op-vop
+   (state <s> ^name create-cos-yaw-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Find the negated pitch matrix
+   (<vog> ^node <yaw-matrix>)
+   (<yaw-matrix> ^node-id <yaw-matrix-node-id>
+                   ^node-name |yaw matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-apply-unary-op-vop
+         ^target <yaw-matrix-node-id>
+         ^unary-op cos)
+}

@@ -1,0 +1,19 @@
+sp {create-neg-Vx-matrix*propose*make-mul-mats-vop
+   (state <s> ^name create-neg-Vx-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<s> ^top-state.svs.vsm.vog.node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for sin(yaw) and cos(pitch) matrices
+   (<vog> ^node <cos-pitch>
+          ^node <sin-yaw>)
+   (<cos-pitch> ^node-id <cos-pitch-id>
+                ^node-name |cos pitch matrix|)
+   (<sin-yaw> ^node-id <sin-yaw-id>
+              ^node-name |sin yaw matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-mul-mats-vop
+         ^a <cos-pitch-id>
+         ^b <sin-yaw-id>)
+}

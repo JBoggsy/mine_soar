@@ -1,0 +1,15 @@
+sp {propose*initialize-agent_gamma
+   (state <s> ^superstate nil
+             -^name)
+-->
+   (<s> ^operator <o> +)
+   (<o> ^name initialize-agent_gamma)
+}
+
+sp {apply*initialize-agent_gamma
+   (state <s> ^operator <op>)
+   (<op> ^name initialize-agent_gamma)
+-->
+   (<s> ^name agent_gamma)
+}
+

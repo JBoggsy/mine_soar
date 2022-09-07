@@ -1,0 +1,19 @@
+sp {create-Dxyz-matrix*propose*make-stack-matrices-vop
+   (state <s> ^name create-Dxyz-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+   # Check for Dxy and Dz matrices
+   (<vog> ^node <Dxy-matrix>
+          ^node <Dz-matrix>)
+   (<Dxy-matrix> ^node-id <Dxy-matrix-id>
+               ^node-name |Dxy matrix|)
+   (<Dz-matrix> ^node-id <Dz-matrix-id>
+                ^node-name |Dz matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-stack-matrices-vop
+         ^b <Dz-matrix-id>
+         ^a <Dxy-matrix-id>)
+}

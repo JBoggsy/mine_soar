@@ -1,0 +1,4 @@
+source elaborations.soar
+source make-stack-matrices-vop.soar
+source name-vop-node.soar
+source add-save-node.soar

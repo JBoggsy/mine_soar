@@ -1,0 +1,11 @@
+sp {apply*name-vop-node
+   (state <s> ^operator <op>
+              ^top-state.svs.vsm.vog.node <node>)
+   (<node> ^node-id <node-id>
+          -^node-name)
+   (<op> ^name name-vop-node
+         ^node-id <node-id>
+         ^node-name <node-name>)
+-->
+   (<node> ^node-name <node-name>)
+}

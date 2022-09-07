@@ -1,0 +1,3 @@
+pushd agent_gamma
+source agent_gamma_source.soar
+popd

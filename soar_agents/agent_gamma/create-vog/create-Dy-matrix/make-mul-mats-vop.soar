@@ -1,0 +1,21 @@
+sp {create-Dy-matrix*propose*make-mul-mats-vop
+   (state <s> ^name create-Dy-matrix
+              ^top-state.svs.vsm.vog <vog>)
+  -{(<vog> ^node <node>)
+    (<node> -^node-name
+             ^op-name <> save-to-file)}
+  -{(<vog> ^node <self-node>)
+    (<self-node> ^node-name |Dy matrix|)}
+   # Check for D and Vy matrices
+   (<vog> ^node <D-matrix>
+          ^node <Vy-matrix>)
+   (<D-matrix> ^node-id <D-matrix-id>
+               ^node-name |D matrix|)
+   (<Vy-matrix> ^node-id <Vy-matrix-id>
+                ^node-name |Vy matrix|)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name make-mul-mats-vop
+         ^a <D-matrix-id>
+         ^b <Vy-matrix-id>)
+}
