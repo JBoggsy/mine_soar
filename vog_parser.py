@@ -1,3 +1,4 @@
+from collections import defaultdict
 from pprint import pprint
 import re
 
@@ -7,9 +8,10 @@ class Node(object):
         self.soar_id = soar_id
         self.node_id = -1
         self.node_op = ""
+        self.node_name = ""
         self.children = []
         self.parent_dict = {}
-        self.attributes = []
+        self.attributes = defaultdict(list)
 
         
 
@@ -34,7 +36,8 @@ class VOG(object):
                 
                 if attr_name == "node-id": node.node_id = int(attr_val)
                 elif attr_name == "op-name": node.node_op = attr_val
-                else: node.attributes.append((attr_name, attr_val))
+                elif attr_name == "node-name": node.node_name = attr_val
+                node.attributes[attr_name].append(attr_val)
                 if attr_name in ["target", "a", "b", "template"]: node.parent_dict[attr_name] = int(attr_val)
                 
             self.nodes[node.node_id] = node
@@ -51,10 +54,13 @@ class VOG(object):
             ret_str += "|" + "---"*(depth)
             active_node = self.nodes[active_node_id]
             active_node_op = "root" if active_node_id == -1 else active_node.node_op
-            ret_str += f"{active_node_id}: {active_node_op}\n"
-            for attr_name, attr_val in active_node.attributes:
-                ret_str += "|" + "---"*(depth)
-                ret_str += f"---{attr_name}={attr_val}\n"
+            active_node_name = "root" if active_node_id == -1 else active_node.node_name
+            ret_str += f"{active_node_id}: {active_node_name} ({active_node_op})\n"
+            for attr_name, attr_vals in active_node.attributes.items():
+                if attr_name in ["node-id", "op-name", "node-name"]: continue
+                for val in attr_vals:
+                    ret_str += "|" + "---"*(depth)
+                    ret_str += f"---{attr_name}={val}\n"
             for c_id in active_node.children:
                 node_stack.append((c_id, depth+1))
         return ret_str

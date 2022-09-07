@@ -1,4 +1,4 @@
-from calendar import c
+import json
 from pathlib import Path
 
 import tkinter as tk
@@ -198,6 +198,7 @@ class MineSoarGUI(tk.Tk):
     def _soar_output_callback(self, text):
         self.soar_output_text.insert(tk.END, text)
         self.soar_output_text.insert(tk.END, "\n")
+        self.soar_output_text.yview_moveto(1.0)
         print(text)
 
     def _soar_state_viewer_callback(self, state_text, vog_text):
@@ -209,6 +210,11 @@ class MineSoarGUI(tk.Tk):
         self.soar_vog_viewer_text.delete(1.0, tk.END)
         self.soar_vog_viewer_text.insert(tk.END, str(self.vog))
         self.soar_vog_viewer_text.insert(tk.END, "\n")
+        node_key_dict = dict()
+        for node_id, node in self.vog.nodes.items():
+            node_key_dict[node_id] = dict(node.attributes)
+        with open("key.json", "w") as node_key_f:
+            json.dump(node_key_dict, node_key_f)
 
     def perform_action(self, action_str):
         action_idx = self.mission_commands.index(action_str)

@@ -49,6 +49,8 @@
           <DrawBlock type="planks" x="20" y="229" z="20"/>
           
           <DrawBlock type="planks" x="19" y="230" z="19"/>
+
+
       </DrawingDecorator>  
       <!-- <ServerQuitFromTimeUp description="" timeLimitMs="100000"/> -->
       <ServerQuitWhenAnyAgentFinishes/>
@@ -58,7 +60,7 @@
   <AgentSection mode="Survival">
     <Name>Agent0</Name>
     <AgentStart>
-      <Placement pitch="0" x="0.5" y="227.0" yaw="0" z="0.5"/>
+      <Placement pitch="0" x="19.5" y="227.0" yaw="0" z="8.5"/>
     </AgentStart>
     <AgentHandlers>
       <DiscreteMovementCommands/>
