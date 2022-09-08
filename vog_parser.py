@@ -1,5 +1,5 @@
 from collections import defaultdict
-from pprint import pprint
+import json
 import re
 
 
@@ -12,6 +12,11 @@ class Node(object):
         self.children = []
         self.parent_dict = {}
         self.attributes = defaultdict(list)
+        self.matrix_data = None
+    
+    def load_matrix_data(self):
+        with open(f"node-{self.node_id}.json", "r") as node_file:
+            self.matrix_data = json.load(node_file)["Image Data"]
 
         
 
@@ -45,25 +50,12 @@ class VOG(object):
         for n_id, n in self.nodes.items():
             for p_id in n.parent_dict.values():
                 self.nodes[p_id].children.append(n_id)
-
-    def __str__(self):
-        ret_str = ""
-        node_stack = [(-1,0)]
-        while len(node_stack) > 0:
-            active_node_id, depth = node_stack.pop()
-            ret_str += "|" + "---"*(depth)
-            active_node = self.nodes[active_node_id]
-            active_node_op = "root" if active_node_id == -1 else active_node.node_op
-            active_node_name = "root" if active_node_id == -1 else active_node.node_name
-            ret_str += f"{active_node_id}: {active_node_name} ({active_node_op})\n"
-            for attr_name, attr_vals in active_node.attributes.items():
-                if attr_name in ["node-id", "op-name", "node-name"]: continue
-                for val in attr_vals:
-                    ret_str += "|" + "---"*(depth)
-                    ret_str += f"---{attr_name}={val}\n"
-            for c_id in active_node.children:
-                node_stack.append((c_id, depth+1))
-        return ret_str
+        
+        node_key_dict = dict()
+        for node_id, node in self.nodes.items():
+            node_key_dict[node_id] = dict(node.attributes)
+        with open("key.json", "w") as node_key_f:
+            json.dump(node_key_dict, node_key_f)
 
 
 

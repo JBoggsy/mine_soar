@@ -323,8 +323,7 @@ class MineSoarGUI(tk.Tk):
         self.soar_output_scrollbar  = ttk.Scrollbar(self.soar_output_frame, orient=tk.VERTICAL, command=self.soar_output_text.yview)
 
         self.soar_state_viewer_tree = ttk.Treeview(self.soar_output_frame, columns=("value"))
-        self.soar_vog_viewer_text   = tk.Text(self.soar_output_frame, width=50, height=20)
-        self.soar_vog_viewer_scrollbar  = ttk.Scrollbar(self.soar_output_frame, orient=tk.VERTICAL, command=self.soar_vog_viewer_text.yview)
+        self.soar_vog_viewer_tree   = ttk.Treeview(self.soar_output_frame, columns=("value"))
 
         # GRID UI ELEMENTS
         ##################
@@ -335,8 +334,7 @@ class MineSoarGUI(tk.Tk):
         self.soar_output_scrollbar.grid(column=1, row=1, rowspan=2, sticky=tk.NSEW)
         
         self.soar_state_viewer_tree.grid(column=2, row=1, stick=tk.NSEW)
-        self.soar_vog_viewer_text.grid(column=2, row=2, sticky=tk.NSEW)
-        self.soar_vog_viewer_scrollbar.grid(column=3, row=2, sticky=tk.NSEW)
+        self.soar_vog_viewer_tree.grid(column=2, row=2, sticky=tk.NSEW)
 
         # CONFIGURE UI ELEMENTS
         #######################
@@ -345,13 +343,7 @@ class MineSoarGUI(tk.Tk):
         self.soar_output_text.tag_configure("output-grey", background='alice blue')
 
         self.soar_state_viewer_tree.insert("", tk.END, "S1")
-
-        self.soar_vog_viewer_text.configure(yscrollcommand=self.soar_vog_viewer_scrollbar.set)
-        self.soar_vog_viewer_text.tag_configure("node-id", font=self.bold_font)
-        self.soar_vog_viewer_text.tag_configure("node-name", font=self.bold_font)
-        self.soar_vog_viewer_text.tag_configure("node-op", font=self.italic_font)
-        self.soar_vog_viewer_text.tag_configure("node-full-white", background='white smoke')
-        self.soar_vog_viewer_text.tag_configure("node-full-grey", background='alice blue')
+        self.soar_vog_viewer_tree.insert("", tk.END, "-1")
 
     def _soar_output_callback(self, text):
         self.soar_output_text.insert(tk.END, text, (self.soar_output_highlight_tag,))
@@ -364,32 +356,27 @@ class MineSoarGUI(tk.Tk):
         self._write_state_to_viewer()
 
         self.vog.parse_vog_text(vog_text)
-        self.soar_vog_viewer_text.delete(1.0, tk.END)
-        self.soar_vog_viewer_text.insert(tk.END, str(self.vog))
-        self.soar_vog_viewer_text.insert(tk.END, "\n")
-        node_key_dict = dict()
-        for node_id, node in self.vog.nodes.items():
-            node_key_dict[node_id] = dict(node.attributes)
-        with open("debug/key.json", "w") as node_key_f:
-            json.dump(node_key_dict, node_key_f)
+        self._write_vog_text_to_viewer()
 
     def _write_state_to_viewer(self):
         self.soar_state_viewer_tree.delete("S1")
         self.soar_state_viewer_tree.insert("", tk.END, "S1", text="root")
         self.soar_state.insert_in_treeview(self.soar_state_viewer_tree)
-
-        # for parent, name, val, id_node in self.soar_state.iter():
-        #     print(f"Inserting WME ({parent} ^{name} {val})")
-        #     if id_node:
-        #         self.soar_state_viewer_tree.insert(parent, 0, val, text=name)
-        #     else:
-        #         self.soar_state_viewer_tree.insert(parent, tk.END, text=name, values=(val,))
-
-        return NotImplementedError
+        self.soar_state_viewer_tree.item("S1", open=True)
 
     def _write_vog_text_to_viewer(self):
-        return NotImplementedError
-
+        self.soar_vog_viewer_tree.delete("-1")
+        self.soar_vog_viewer_tree.insert("", tk.END, "-1", text="root")
+        for node_id, node in self.vog.nodes.items():
+            if node_id == -1: continue
+            if node.node_op != "save-to-file":
+                tree_id = self.soar_vog_viewer_tree.insert("-1", tk.END, str(node_id), text=node.node_name, values=(node.node_op,))
+            else:
+                tree_id = self.soar_vog_viewer_tree.insert(str(node.attributes["target"][0]), tk.END, str(node_id), text=node.node_name, values=(node.node_op,))
+            for attr, vals in node.attributes.items():
+                for v in vals:
+                    self.soar_vog_viewer_tree.insert(tree_id, tk.END, text=attr, values=(v,))
+        self.soar_vog_viewer_tree.item("-1", open=True)
 
     
     def make_vog_visual_widget(self):
@@ -397,6 +384,8 @@ class MineSoarGUI(tk.Tk):
 
 
     def perform_action(self, action_str):
+        true = True     # Allows the eval() method below to work
+        false = False   # Allows the eval() method below to work
         action_idx = self.mission_commands.index(action_str)
         obs, reward, done, info = self.env.step(action_idx)
         print(info)
