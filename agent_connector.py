@@ -6,8 +6,6 @@ import cv2
 import pysoarlib as psl
 import Python_sml_ClientInterface as sml
 
-from consts import *
-
 
 class AgentConnector(psl.AgentConnector):
     def __init__(self, agent: psl.SoarClient):
@@ -105,7 +103,6 @@ class StateViewerConnector(psl.AgentConnector):
         self.gui = None
     
     def on_input_phase(self, input_link):
-        state_text = self.agent.execute_command(PRINT_STATE_COMMAND, False)
-        vog_text = self.agent.execute_command(PRINT_VOG_COMMAND, False)
+        state_text = self.agent.execute_command("p s1 -d 6", False)
+        vog_text = self.agent.execute_command("p v6 -d 4", False)
         self.gui._soar_state_viewer_callback(state_text, vog_text)
-        # print(state_text)
