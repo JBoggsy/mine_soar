@@ -6,7 +6,7 @@ sp {create-vog*propose*create-pitch-matrix
     (<pitch-mat-node> ^node-name |pitch matrix|
                       ^node-id <pitch-mat-node-id>)
     (<pitch-mat-save-node> ^op-name save-to-file
-                           ^target <pitch-mat-node-id>)}
+                           ^source <pitch-mat-node-id>)}
    # Check for pitch adj and agent pitch matrices
    (<vog> ^node <pitch-adjust-mat-node>
           ^node <agent-pitch-mat-node>)

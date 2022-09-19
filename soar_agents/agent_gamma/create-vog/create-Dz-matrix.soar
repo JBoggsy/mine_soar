@@ -6,7 +6,7 @@ sp {create-vog*propose*create-Dz-matrix
     (<self-node> ^node-name |Dz matrix|
                  ^node-id <self-node-id>)
     (<save-node> ^op-name save-to-file
-                 ^target <self-node-id>)}
+                 ^source <self-node-id>)}
    # Check for D and Vz matrices
    (<vog> ^node <D-matrix>
           ^node <Vz-matrix>)

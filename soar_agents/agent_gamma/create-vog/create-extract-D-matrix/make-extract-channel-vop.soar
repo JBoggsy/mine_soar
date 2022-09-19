@@ -15,6 +15,6 @@ sp {create-extract-D-matrix*propose*create-extract-channel-vop
 -->
    (<s> ^operator <op> + =)
    (<op> ^name make-extract-channel-vop
-         ^target <vision-node-id>
+         ^source <vision-node-id>
          ^channel 3)
 }

@@ -6,7 +6,7 @@ sp {create-vog*propose*create-Dx-matrix
     (<self-node> ^node-name |Dx matrix|
                  ^node-id <self-node-id>)
     (<save-node> ^op-name save-to-file
-                 ^target <self-node-id>)}
+                 ^source <self-node-id>)}
    # Check for D and Vx matrices
    (<vog> ^node <D-matrix>
           ^node <Vx-matrix>)

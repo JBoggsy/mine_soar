@@ -6,7 +6,7 @@ sp {create-vog*propose*create-Dy-matrix
     (<self-node> ^node-name |Dy matrix|
                  ^node-id <self-node-id>)
     (<save-node> ^op-name save-to-file
-                 ^target <self-node-id>)}
+                 ^source <self-node-id>)}
    # Check for D and Vy matrices
    (<vog> ^node <D-matrix>
           ^node <Vy-matrix>)

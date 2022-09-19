@@ -6,7 +6,7 @@ sp {create-vog*propose*create-Dxyz-matrix
     (<self-node> ^node-name |Dxyz matrix|
                  ^node-id <self-node-id>)}
    #  (<save-node> ^op-name save-to-file
-   #               ^target <self-node-id>)}
+   #               ^source <self-node-id>)}
    (<vog>   ^node <Dxy-node>
             ^node <Dz-node>)
    (<Dxy-node>   ^node-name |Dxy matrix|

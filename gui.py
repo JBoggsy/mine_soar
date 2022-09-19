@@ -372,7 +372,7 @@ class MineSoarGUI(tk.Tk):
             if node.node_op != "save-to-file":
                 tree_id = self.soar_vog_viewer_tree.insert("-1", tk.END, str(node_id), text=node.node_name, values=(node.node_op,))
             else:
-                tree_id = self.soar_vog_viewer_tree.insert(str(node.attributes["target"][0]), tk.END, str(node_id), text=node.node_name, values=(node.node_op,))
+                tree_id = self.soar_vog_viewer_tree.insert(str(node.attributes["source"][0]), tk.END, str(node_id), text=node.node_name, values=(node.node_op,))
             for attr, vals in node.attributes.items():
                 for v in vals:
                     self.soar_vog_viewer_tree.insert(tree_id, tk.END, text=attr, values=(v,))

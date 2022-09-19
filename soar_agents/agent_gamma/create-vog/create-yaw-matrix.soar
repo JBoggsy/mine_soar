@@ -6,7 +6,7 @@ sp {create-vog*propose*create-yaw-matrix
     (<yaw-mat-node>  ^node-name |yaw matrix|
                      ^node-id <yaw-mat-node-id>)
     (<yaw-save-node>  ^op-name save-to-file
-                      ^target <yaw-mat-node-id>)}
+                      ^source <yaw-mat-node-id>)}
    # Check for the yaw adj and agent-yaw matrices
    (<vog> ^node <yaw-adj-mat-node>
           ^node <agent-yaw-mat-node>)

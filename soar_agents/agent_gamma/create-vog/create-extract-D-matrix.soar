@@ -6,7 +6,7 @@ sp {create-vog*propose*create-extract-D-matrix
     (<D-matrix-node> ^node-name |D matrix|
                      ^node-id <D-matrix-node-id>)
     (<D-matrix-save-node>  ^op-name save-to-file
-                           ^target <D-matrix-node-id>)}
+                           ^source <D-matrix-node-id>)}
    (<vog> ^node <vision-node>)
    (<vision-node> ^node-name |vision|
                   ^node-id <vision-node-id>)

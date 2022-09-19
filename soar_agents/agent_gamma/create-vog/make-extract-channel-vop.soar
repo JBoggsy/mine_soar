@@ -5,11 +5,11 @@ sp {apply*make-extract-channel-vop
    (state <s> ^operator <op>
               ^svs.command <cmd>)
    (<op> ^name make-extract-channel-vop
-         ^target <tgt-id>
+         ^source <tgt-id>
          ^channel <channel>)
 -->
    (<cmd> ^add-vop-node <add-vop>)
    (<add-vop> ^op-type extract-channel
-              ^target <tgt-id>
+              ^source <tgt-id>
               ^channel <channel>)
 }

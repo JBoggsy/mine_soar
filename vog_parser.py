@@ -43,7 +43,7 @@ class VOG(object):
                 elif attr_name == "op-name": node.node_op = attr_val
                 elif attr_name == "node-name": node.node_name = attr_val
                 node.attributes[attr_name].append(attr_val)
-                if attr_name in ["target", "a", "b", "template"]: node.parent_dict[attr_name] = int(attr_val)
+                if attr_name in ["source", "a", "b", "template"]: node.parent_dict[attr_name] = int(attr_val)
                 
             self.nodes[node.node_id] = node
         

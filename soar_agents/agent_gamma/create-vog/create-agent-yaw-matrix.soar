@@ -7,7 +7,7 @@ sp {create-vog*propose*create-agent-yaw-matrix
     (<agent-yaw-mat-node>   ^node-name |agent yaw matrix|
                               ^node-id <agent-yaw-mat-node-id>)
     (<agent-yaw-mat-save-node> ^op-name save-to-file
-                               ^target <agent-yaw-mat-node-id>)}
+                               ^source <agent-yaw-mat-node-id>)}
 -->
    (<s> ^operator <op> + =)
    (<op> ^name create-agent-yaw-matrix)

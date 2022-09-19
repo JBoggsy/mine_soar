@@ -6,9 +6,9 @@ sp {create-get-vision*propose*make-save-node
             ^node-id <node-id>)
  -{(<vog>   ^node <save-node>)
    (<save-node> ^op-name save-to-file
-                ^target <node-id>)}
+                ^source <node-id>)}
 -->
    (<s> ^operator <op> + =)
    (<op> ^name make-save-node
-         ^target <node-id>)
+         ^source <node-id>)
 }

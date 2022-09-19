@@ -7,7 +7,7 @@ sp {create-vog*propose*create-agent-pitch-matrix
     (<agent-pitch-mat-node>   ^node-name |agent pitch matrix|
                               ^node-id <agent-pitch-mat-node-id>)
     (<agent-pitch-mat-save-node> ^op-name save-to-file
-                                 ^target <agent-pitch-mat-node-id>)}
+                                 ^source <agent-pitch-mat-node-id>)}
 -->
    (<s> ^operator <op> + =)
    (<op> ^name create-agent-pitch-matrix)

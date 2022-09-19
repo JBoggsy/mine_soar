@@ -6,7 +6,7 @@ sp {create-vog*propose*create-get-vision
     (<self-node> ^node-name |vision|
                  ^node-id <self-node-id>)
     (<save-node> ^op-name save-to-file
-                 ^target <self-node-id>)}
+                 ^source <self-node-id>)}
 -->
    (<s> ^operator <op> + =)
    (<op> ^name create-get-vision)

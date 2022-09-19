@@ -11,6 +11,6 @@ sp {create-sin-yaw-matrix*propose*make-apply-unary-op-vop
 -->
    (<s> ^operator <op> + =)
    (<op> ^name make-apply-unary-op-vop
-         ^target <yaw-matrix-node-id>
+         ^source <yaw-matrix-node-id>
          ^unary-op sin)
 }
