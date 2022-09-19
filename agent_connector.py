@@ -98,15 +98,3 @@ class AgentConnector(psl.AgentConnector):
             self.gui.perform_action(action_str)
             root_id.AddStatusComplete()
         return super().on_output_event(command_name, root_id)
-
-
-class StateViewerConnector(psl.AgentConnector):
-    def __init__(self, agent):
-        super().__init__(agent)
-        self.agent = agent
-        self.gui = None
-    
-    def on_input_phase(self, input_link):
-        state_text = self.agent.execute_command("p s1 -d 6", False)
-        vog_text = self.agent.execute_command("p v6 -d 4", False)
-        self.gui._soar_state_viewer_callback(state_text, vog_text)

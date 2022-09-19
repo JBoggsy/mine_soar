@@ -5,7 +5,7 @@ import sys
 
 import pysoarlib as psl
 
-from agent_connector import AgentConnector, StateViewerConnector
+from agent_connector import AgentConnector
 from gui import MineSoarGUI
 
 
@@ -59,15 +59,14 @@ minecraft_connector = AgentConnector(agent)
 minecraft_connector.add_output_command("take-action")
 agent.add_connector("minecraft", minecraft_connector)
 
-state_view_connector = StateViewerConnector(agent)
-agent.add_connector("state_viewer", state_view_connector)
+# state_view_connector = StateViewerConnector(agent)
+# agent.add_connector("state_viewer", state_view_connector)
 
 ##############
 # CREATE GUI #
 ##############
-mine_gui = MineSoarGUI(agent, minecraft_connector, state_view_connector, cli_namespace.port)
+mine_gui = MineSoarGUI(agent, minecraft_connector, cli_namespace.port)
 minecraft_connector.gui = mine_gui
-state_view_connector.gui = mine_gui
 agent.print_handler = mine_gui._soar_output_callback
 
 #######################

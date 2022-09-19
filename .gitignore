@@ -126,3 +126,5 @@ dmypy.json
 *.png
 
 *.json
+
+visual_operation_graph
