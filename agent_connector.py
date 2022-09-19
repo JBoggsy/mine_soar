@@ -85,6 +85,10 @@ class AgentConnector(psl.AgentConnector):
         self.world_time_wme.set_value(self.world_time)
         self.world_time_wme.update_wm(input_link)
 
+        state_text = self.agent.execute_command("p s1 -d 6", False)
+        vog_text = self.agent.execute_command("p v6 -d 4", False)
+        self.gui._soar_state_viewer_callback(state_text, vog_text)
+
     def on_output_event(self, command_name, root_id):
         print(f"output event: {command_name}")
         if command_name == "take-action":

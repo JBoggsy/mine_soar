@@ -17,22 +17,25 @@ cli_namespace = cli.parse_args()
 
 
 def show_matrix_as_heatmap(matrix_data: np.ndarray) -> tuple[Figure, np.ndarray]:
-    subplot_rows = ceil(sqrt(channels))
-    subplot_cols = ceil(channels/subplot_rows)
+    rows, cols, channels = matrix_data.shape
+    subplot_cols = ceil(sqrt(channels))
+    subplot_rows = ceil(channels/subplot_cols)
     fig, ax = plt.subplots(nrows=subplot_rows, ncols=subplot_cols)
 
     if channels == 1:
         ax = np.array([ax,]).reshape((1,1))
     if channels == 2:
-        ax = ax.reshape((1,2))
+        ax = ax.reshape((2,1))
 
     for chan in range(channels):
         row = chan//subplot_rows
         col = chan - (row*subplot_cols)
-        chan_img = ax[row, col].imshow(matrix[:,:,chan])
+        chan_img = ax[row, col].imshow(matrix_data[:,:,chan])
+        if channels > 1:
+            ax[row, col].set_title(f"Channel {chan}")
 
-    if channels == 3:
-        ax[1,1].imshow(matrix.astype(int))
+    # if channels == 3:
+    #     ax[1,1].imshow(matrix_data.astype(int))
 
     fig.tight_layout()
 
@@ -54,6 +57,22 @@ def show_matrix_as_image(matrix_data):
     ax.imshow(matrix_data)
     
     return fig, np.array([ax,]).reshape(1,1)
+
+def show_matrix_as_points(matrix_data):
+    assert type(matrix_data) is np.ndarray, "Image matrix must be of type np.ndarray"
+
+    rows, cols, chans = matrix_data.shape
+    assert chans in [2, 3], "Image matrix must have either 2 or 3 channels"
+
+    if chans == 3:
+        dist_matrix = np.sqrt(np.square(matrix_data[:,:,2]) + np.square(matrix_data[:,:,0]) + np.square(matrix_data[:,:,1]))
+        fig = plt.figure()
+        ax = plt.axes(projection="3d")
+        ax.scatter3D(matrix_data[:,:,2].flatten(), matrix_data[:,:,0].flatten(), matrix_data[:,:,1].flatten(), c=dist_matrix)
+        ax.view_init(15, -135)
+    
+    return fig, ax
+
 
 
 if __name__ == "__main__":
@@ -88,6 +107,8 @@ if __name__ == "__main__":
         print(f"Processing node-{node_id} ({node_op}) with shape ({rows}, {cols}, {channels})...")
         if node_op in ["save-to-file", "get-from-vsm"]:
             fig, axes = show_matrix_as_image(matrix)
+        elif node_op in ["stack-matrices"]:
+            fig, axes = show_matrix_as_points(matrix)
         else:
             fig, axes = show_matrix_as_heatmap(matrix)
             axes = axes.flatten()

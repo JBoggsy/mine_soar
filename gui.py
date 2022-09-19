@@ -15,7 +15,7 @@ import cv2
 
 import pysoarlib as psl
 
-from agent_connector import AgentConnector, StateViewerConnector
+from agent_connector import AgentConnector
 from soar_state import SoarState
 from vog_parser import VOG
 
@@ -27,13 +27,12 @@ ATTRIBUTE_PATTERN = re.compile("\^([\w\d\-_]+)\s+([\w\d\-_*.]+|\|.*\|)")
 
 
 class MineSoarGUI(tk.Tk):
-    def __init__(self, agent: psl.SoarClient, connector: AgentConnector, state_viewer_connector: StateViewerConnector, port):
+    def __init__(self, agent: psl.SoarClient, connector: AgentConnector, port):
         super().__init__()
         self.title = "Minecraft Soar Testing Platform"
 
         self.agent = agent
         self.connector = connector
-        self.state_viewer_connector = state_viewer_connector
 
         self.env = malmoenv.make()
         self.current_observation = None
@@ -65,7 +64,7 @@ class MineSoarGUI(tk.Tk):
         self.make_soar_control_widgets()
         self.make_mission_control_widgets()
         self.make_soar_output_widgets()
-        # self.make_vog_visual_widget()
+        self.make_vog_visual_widget()
 
         self._load_production_list()
 
@@ -161,7 +160,7 @@ class MineSoarGUI(tk.Tk):
         # CONFIGURE UI ELEMENTS
         #######################
         self.single_production_list.bind('<<ListboxSelect>>', self._production_select_callback)
-        self.soar_input_entry.bind("<Return>", self._soar_send_callback)
+        self.soar_input_entry.bind("<Return>", lambda e: self._soar_send_callback())
 
     def __output_highlight(func):
         def func_with_highlight(self, *args, **kwargs):
@@ -378,9 +377,17 @@ class MineSoarGUI(tk.Tk):
                     self.soar_vog_viewer_tree.insert(tree_id, tk.END, text=attr, values=(v,))
         self.soar_vog_viewer_tree.item("-1", open=True)
 
+
+    ########################################
+    # VISUAL OPERATION GRAPH VIEWER WIDGET #
+    ########################################
     
     def make_vog_visual_widget(self):
-        pass
+        self.vog_visual_frame = ttk.Frame(self)
+        self.draw_vog_button = ttk.Button(self.vog_visual_frame, text="Draw VOG", command=lambda: self.vog.draw_graph())
+
+        self.vog_visual_frame.grid(column=0, columnspan=2, row=7)
+        self.draw_vog_button.grid(column=0, row=0, sticky=tk.NSEW)
 
 
     def perform_action(self, action_str):
@@ -391,9 +398,13 @@ class MineSoarGUI(tk.Tk):
         print(info)
         self.connector.update_info(eval(info))
         self.update_observation(obs)
+        self._soar_step_callback(2)
 
     def update_observation(self, observation:np.ndarray, info=None):
         self.current_observation = np.flip(observation.reshape(OBSERVATION_SHAPE), axis=0)
         observation_bgr = cv2.cvtColor(self.current_observation, cv2.COLOR_RGBA2BGRA)
         cv2.imwrite("./observation_raw.png", observation_bgr)
         self.connector.send_vision(observation_bgr)
+        state_text = self.agent.execute_command("p s1 -d 6", False)
+        vog_text = self.agent.execute_command("p v6 -d 4", False)
+        self._soar_state_viewer_callback(state_text, vog_text)
