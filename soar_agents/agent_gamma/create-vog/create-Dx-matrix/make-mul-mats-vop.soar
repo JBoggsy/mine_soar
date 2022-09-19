@@ -5,7 +5,7 @@ sp {create-Dx-matrix*propose*make-mul-mats-vop
     (<node> -^node-name
              ^op-name <> save-to-file)}
   -{(<vog> ^node <self-node>)
-    (<self-node> ^node-name |Dz matrix|)}
+    (<self-node> ^node-name |Dx matrix|)}
    # Check for D and Vx matrices
    (<vog> ^node <D-matrix>
           ^node <Vx-matrix>)
