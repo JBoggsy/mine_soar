@@ -9,7 +9,7 @@ from tkinter import ttk
 from tkinter import font
 from tkinter import filedialog as tkfd
 
-import malmoenv
+import MalmoPython
 import numpy as np
 import cv2
 
@@ -34,7 +34,7 @@ class MineSoarGUI(tk.Tk):
         self.agent = agent
         self.connector = connector
 
-        self.env = malmoenv.make()
+        self.malmo_agent_host = MalmoPython.AgentHost()
         self.current_observation = None
 
         self.mission_file = None
@@ -277,7 +277,7 @@ class MineSoarGUI(tk.Tk):
         self.vertical_fill_frame.grid(column=0, row=3, rowspan=3, sticky=tk.NSEW)
 
     def _launch_malmo_client(self):
-        MALMO_ARGS = [f"/home/boggsj/Coding/malmo/Minecraft/launchClient.sh", "-port", self.mission_port_text_var.get(), "-env"]
+        MALMO_ARGS = [f"/home/boggsj/Coding/Malmo-prebuilt/Minecraft/launchClient.sh", "-port", self.mission_port_text_var.get()]
         malmo_proc = Popen(MALMO_ARGS, stdout=sys.stdout)
 
     def _select_mission_file(self):
@@ -290,15 +290,12 @@ class MineSoarGUI(tk.Tk):
             print("No mission file selected")
             return
         self.mission_port = int(self.mission_port_text_var.get())
-        self.env.init(xml=self.mission_file.read_text(),
-                      server=None,
-                      port=self.mission_port,
-                      action_filter={})
-        self.mission_commands = [cmd for cmd in self.env.action_space]
-        self.mission_choose_action_dropdown['values'] = self.mission_commands
-        self.mission_choose_action_dropdown.state(["readonly"])
-        self.mission_choose_action_dropdown.set(self.mission_commands[0])
-        self.env.reset()
+        malmo_client_info = MalmoPython.ClientInfo('127.0.0.1', self.mission_port)
+        malmo_client_pool = MalmoPython.ClientPool()
+        malmo_client_pool.add(malmo_client_info)
+        mission_spec = MalmoPython.MissionSpec(self.mission_file.read_text(), True)
+        mission_record_spec = MalmoPython.MissionRecordSpec()
+        self.malmo_agent_host.startMission(mission_spec, malmo_client_pool, mission_record_spec, 0, "TEST ALPHA")
 
     def _mission_do_action(self):
         action_str = self.action_select_text_var.get()
