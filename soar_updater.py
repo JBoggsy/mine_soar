@@ -2,7 +2,7 @@ import os
 import shutil
 
 os.chdir("/home/boggsj/Coding/research/Soar")
-build_result = os.system("python scons/scons.py all --dbg --use-opencv")
+build_result = os.system("python scons/scons.py all --dbg --use-opencv --use-torch")
 
 if build_result != 0:
     print(f"Soar build failed: {build_result}")
